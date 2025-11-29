@@ -10,5 +10,3 @@ class Address(Base):
     city = Column(String)
     postal_code = Column(String)
 
-    def get_full_address(self):
-        return f"{self.house_no}, {self.street}, {self.city} - {self.postal_code}"

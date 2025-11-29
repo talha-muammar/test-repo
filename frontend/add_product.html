@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - Bazar Kori</title>
+    <link rel="stylesheet" href="add_product.css">
+</head>
+<body>
+
+<header>
+    <div class="title">Bazar Kori <span>(Admin)</span></div>
+    <button class="logout">Log Out</button>
+</header>
+
+<div class="container glass">
+    <h1>Add a Product</h1>
+    <p class="subtitle">Enter Product Details:</p>
+
+    <form class="product-form">
+
+        <input type="text" placeholder="Product Name" required>
+        <input type="number" placeholder="Product Quantity" required>
+        <input type="number" step="0.01" placeholder="Price Per Unit" required>
+        <input type="text" placeholder="Category" required>
+
+        <textarea placeholder="Product Description" required></textarea>
+
+        <label class="file-upload">
+            Attach Product Photo
+            <input type="file" accept="image/*">
+        </label>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

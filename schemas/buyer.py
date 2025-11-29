@@ -1,21 +1,27 @@
-from pydantic import BaseModel
-from schemas.address import AddressBase
-from schemas.address import AddressOut
+from pydantic import BaseModel, EmailStr
+from .address import AddressResponse, AddressBase
 
-class BuyerCreate(BaseModel):
+
+class BuyerBase(BaseModel):
     name: str
-    email: str
     phone: str
+    email: EmailStr
+
+
+class BuyerCreate(BuyerBase):
     password: str
-    address: AddressBase
 
-class BuyerOut(BaseModel):
-    id: int
-    name: str
-    email: str
-    phone: str
-    created_at: str
-    address: AddressOut
+
+class BuyerUpdate(BaseModel):
+    name: str | None = None
+    phone: str | None = None
+    address: AddressBase | None = None
+
+
+class BuyerResponse(BuyerBase):
+    user_id: int
+    total_spent: float
+    address: AddressResponse | None
 
     class Config:
         orm_mode = True

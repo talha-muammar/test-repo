@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, ForeignKey, Float
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from db.database import Base
@@ -6,15 +6,13 @@ from db.database import Base
 class Buyer(Base):
     __tablename__ = "buyers"
 
-    id = Column(Integer, primary_key=True, index=True)
-
-    # Former user.py attributes
+    user_id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
-    email = Column(String, unique=True)
+    email = Column(String, unique=True, index=True)
     phone = Column(String)
-    password = Column(String)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    password_hash = Column(String)
+    total_spent = Column(Float, default=0.0)
 
-    # Buyer-specific field
+
     address_id = Column(Integer, ForeignKey("addresses.id"), unique=True)
     address = relationship("Address")
